@@ -1,0 +1,16 @@
+Plaintext
+   │
+AddRoundKey (Round 0)
+   │
+Round 1-9
+   ├─ SubBytes
+   ├─ ShiftRows
+   ├─ MixColumns
+   └─ AddRoundKey
+   │
+Round 10
+   ├─ SubBytes
+   ├─ ShiftRows
+   └─ AddRoundKey
+   │
+Ciphertext
