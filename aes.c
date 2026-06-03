@@ -15,6 +15,8 @@ void create_state(uint8_t plaintext[16], uint8_t state[4][4])
     }
 }
 
+
+
 void print_state(uint8_t state[4][4])
 {
     for (int row = 0; row < 4; row++)
@@ -81,7 +83,6 @@ void shift_rows(uint8_t state[4][4])
     state[3][0] = temp;
 }
 
-
 void mix_columns(uint8_t state[4][4])
 {
     for(int col = 0; col < 4; col++)
@@ -101,7 +102,6 @@ void mix_columns(uint8_t state[4][4])
         state[2][col] = r2;
         state[3][col] = r3;
     }
-
 }
 
 uint8_t xtime(uint8_t x)

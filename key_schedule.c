@@ -4,13 +4,6 @@
 
 extern const uint8_t rcon[10];
 
-void g(uint8_t word[4], int round)
-{
-    rot_word(word);
-    sub_word(word);
-    add_rcon(word, round);
-}
-
 // rotation of 1 byte to the left
 void rot_word(uint8_t word[4])
 {
@@ -20,7 +13,6 @@ void rot_word(uint8_t word[4])
     word[2] = word[3];
     word[3] = temp;
 }
-
 
 void sub_word(uint8_t word[4])
 {
@@ -35,6 +27,13 @@ void add_rcon(uint8_t word[4], int round)
     word[0] ^= rcon[round];
 }
 
+void g(uint8_t word[4], int round)
+{
+    rot_word(word);
+    sub_word(word);
+    add_rcon(word, round);
+}
+
 void xor_words(uint8_t result[4],
                uint8_t a[4],
                uint8_t b[4])
@@ -42,7 +41,6 @@ void xor_words(uint8_t result[4],
     for(int i=0;i<4;i++)
         result[i] = a[i] ^ b[i];
 }
-
 
 void key_expansion(uint8_t key[16], uint8_t w[44][4])
 {
